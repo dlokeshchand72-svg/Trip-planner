@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest AI - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-body">
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+
+  <main class="login-shell">
+    <section class="login-copy fade-up">
+      <span class="tag-pill">Smart journeys, beautifully planned</span>
+
+      <h1>
+        Travel easier.<br />
+        Plan smarter.<br />
+        Explore better.
+      </h1>
+
+      <p>
+        TripNest AI creates personalized itineraries based on your destination,
+        budget, and interests — helping you save time and travel with confidence.
+      </p>
+
+      <div class="info-cards">
+        <div class="info-card">🗺️ Day-wise AI trip planning</div>
+        <div class="info-card">💰 Budget-aware suggestions</div>
+        <div class="info-card">🎯 Interest-based recommendations</div>
+        <div class="info-card">📌 Saved history for each user</div>
+      </div>
+    </section>
+
+    <section class="login-panel fade-up delay-1">
+      <div class="panel-head">
+        <div class="brand-mark">✦</div>
+        <div>
+          <h2>TripNest AI</h2>
+          <p>Your intelligent travel planner</p>
+        </div>
+      </div>
+
+      <div class="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+        <div id="emailError" class="field-message error-message"></div>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" />
+        <div id="passwordError" class="field-message error-message"></div>
+
+        <div id="formMessage" class="form-message"></div>
+
+        <button onclick="login()" class="primary-btn">Login</button>
+        <button onclick="signup()" class="secondary-btn">Create Account</button>
+
+        <div class="panel-note">
+          Personalized travel planning for students, families, and explorers.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="firebase.js"></script>
+</body>
+</html>

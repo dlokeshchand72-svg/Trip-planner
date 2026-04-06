@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripNest AI - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+  <div class="bg-orb orb-three"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-mark">✦</div>
+      <div>
+        <h2>TripNest AI</h2>
+        <p>Personalized trip planning assistant</p>
+      </div>
+    </div>
+
+    <button class="secondary-btn small-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <section class="hero-block fade-up">
+    <div class="hero-main">
+      <span class="tag-pill">AI-powered itinerary builder</span>
+      <h1>Design your next journey with clarity and confidence.</h1>
+      <p>
+        Tell us where you want to go, how long you want to travel,
+        your budget, and your interests — TripNest AI creates a clean
+        day-wise itinerary in seconds.
+      </p>
+    </div>
+
+    <div class="hero-side">
+      <div class="mini-feature-card">
+        <h4>Fast Planning</h4>
+        <p>Generate complete trips without hours of research.</p>
+      </div>
+      <div class="mini-feature-card">
+        <h4>Smarter Suggestions</h4>
+        <p>Plans matched to your budget and interests.</p>
+      </div>
+      <div class="mini-feature-card">
+        <h4>Saved History</h4>
+        <p>Access recent itineraries anytime after login.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-grid">
+    <section class="ui-card fade-up">
+      <div class="section-head">
+        <h2>Trip Details</h2>
+        <p>Enter the essentials to build your personalized itinerary.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="input-group">
+          <label for="destination">Destination</label>
+          <input type="text" id="destination" placeholder="e.g. Hyderabad, Goa, Ooty" />
+          <div id="destinationError" class="field-message error-message"></div>
+        </div>
+
+        <div class="input-group">
+          <label for="days">Number of Days</label>
+          <input type="number" id="days" placeholder="1 to 30" />
+          <div id="daysError" class="field-message error-message"></div>
+        </div>
+
+        <div class="input-group">
+          <label for="travelers">Travelers</label>
+          <input type="number" id="travelers" placeholder="e.g. 2" />
+          <div id="travelersError" class="field-message error-message"></div>
+        </div>
+
+        <div class="input-group">
+          <label for="budget">Budget (₹)</label>
+          <input type="number" id="budget" placeholder="e.g. 10000" />
+          <div id="budgetError" class="field-message error-message"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-card fade-up">
+      <div class="section-head">
+        <h2>Choose Interests</h2>
+        <p>Select the travel themes you want the AI to focus on.</p>
+      </div>
+
+      <div class="chips-container">
+        <button class="chip" type="button" data-value="Food">Food</button>
+        <button class="chip" type="button" data-value="Adventure">Adventure</button>
+        <button class="chip" type="button" data-value="History">History</button>
+        <button class="chip" type="button" data-value="Temples">Temples</button>
+        <button class="chip" type="button" data-value="Nature">Nature</button>
+        <button class="chip" type="button" data-value="Shopping">Shopping</button>
+        <button class="chip" type="button" data-value="Beaches">Beaches</button>
+        <button class="chip" type="button" data-value="Nightlife">Nightlife</button>
+        <button class="chip" type="button" data-value="Culture">Culture</button>
+        <button class="chip" type="button" data-value="Photography">Photography</button>
+      </div>
+
+      <div id="interestsError" class="field-message error-message"></div>
+
+      <div class="selected-box">
+        <strong>Selected Interests:</strong>
+        <span id="selectedInterestsText">None</span>
+      </div>
+
+      <div id="tripFormMessage" class="form-message"></div>
+
+      <div class="button-row">
+        <button class="primary-btn big-btn" onclick="generateTrip()">Generate My Itinerary</button>
+      </div>
+    </section>
+
+    <section class="ui-card fade-up">
+      <div class="section-head row-head">
+        <div>
+          <h2>Generated Plan</h2>
+          <p>Your AI-generated itinerary will appear in structured day cards.</p>
+        </div>
+        <span class="status-badge" id="statusBadge">Ready</span>
+      </div>
+
+      <div id="loadingBox" class="loading-box hidden">
+        <div class="spinner"></div>
+        <p>Generating your personalized trip plan...</p>
+      </div>
+
+      <div id="tripSummary" class="trip-summary hidden"></div>
+      <div id="resultCards" class="day-cards-container"></div>
+    </section>
+
+    <section class="ui-card fade-up">
+      <div class="section-head">
+        <h2>Saved Trip History</h2>
+        <p>Your recent plans are stored here for quick access.</p>
+      </div>
+
+      <div id="historyList" class="history-list">No trip history yet.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">✦ TripNest AI</div>
+    <p>Plan well. Travel better. Explore with confidence.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
